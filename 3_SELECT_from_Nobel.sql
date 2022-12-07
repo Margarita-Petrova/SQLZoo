@@ -47,13 +47,23 @@ WHERE winner LIKE 'John%';
 
 /*--> 8. Show the year, subject, and name of physics winners for 1980 together with the chemistry winners for 1984 */
 
-SELECT DISTINCT p.yr
-FROM nobel p
-WHERE p.subject = 'Physics'
-AND p.yr NOT IN
-(  SELECT c.yr
-  FROM nobel c
-  WHERE c.subject = 'Chemistry');
+SELECT *
+FROM nobel
+WHERE (subject = 'Physics' AND yr = 1980) OR (subject = 'Chemistry' AND yr=1984);
   
 /*--> 9. Show the year, subject, and name of winners for 1980 excluding chemistry and medicine */
   
+SELECT *
+FROM nobel
+WHERE yr = 1980 AND subject NOT IN('chemistry','medicine');
+
+/*--> 10. Show year, subject, and name of people who won a 'Medicine' prize in an early year (before 1910, not including 1910) 
+together with winners of a 'Literature' prize in a later year (after 2004, including 2004) */
+
+SELECT *
+FROM nobel
+WHERE (subject = 'Medicine' AND YR < 1910) OR (subject = 'Literature' AND yr>=2004);
+
+/*--> 11. Find all details of the prize won by PETER GRÜNBERG
+
+
