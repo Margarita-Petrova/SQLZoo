@@ -51,8 +51,6 @@ SELECT DISTINCT p.yr
 FROM nobel p
 WHERE p.subject = 'Physics'
 AND p.yr NOT IN
-(
-  SELECT c.yr
+(  SELECT c.yr
   FROM nobel c
-  WHERE c.subject = 'Chemistry'
-)
+  WHERE c.subject = 'Chemistry');
