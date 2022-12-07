@@ -54,3 +54,6 @@ AND p.yr NOT IN
 (  SELECT c.yr
   FROM nobel c
   WHERE c.subject = 'Chemistry');
+  
+/*--> 9. Show the year, subject, and name of winners for 1980 excluding chemistry and medicine */
+  
